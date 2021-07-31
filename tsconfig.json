@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "rootDir": "src",
-    "outDir": "src/dist",
-    "moduleResolution": "Node",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "moduleResolution": "node",
     "lib": ["ES2015", "DOM", "DOM.Iterable"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
   },
+  
   "exclude": ["node_modules"],
   "include": ["src/**/*.ts"]
 }
