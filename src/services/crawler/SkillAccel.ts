@@ -12,7 +12,7 @@ class SkillAccelCrawler {
     this._parser = new HTMLPaser();
   }
 
-  public async execute() {
+  public async execute(): Promise<IItemSkillAccelData> {
     try {
       const datas = {};
       const HTML = await this._parser!.getHTML(URL.ACCEL_ITEM_URL);
