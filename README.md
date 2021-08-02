@@ -4,7 +4,7 @@
 
 ```python
 GET /champion/item
-Host: 'http://52.78.131.104:9000/champion/item'
+Host: http://52.78.131.104:9000
 ```
 
 ## `Response`
@@ -41,37 +41,37 @@ result.data =
         "점화석": {
           "skillAccel": "10",
           "englishName": "Kindlegem",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3067.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3067.png?image=q_auto:best&v=1626880099"
         },
         "콜필드의 전투 망치": {
           "skillAccel": "10",
           "englishName": "Caulfield's Warhammer",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3133.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3133.png?image=q_auto:best&v=1626880099"
         },
         "칠흑의 양날 도끼": {
           "skillAccel": "25",
           "englishName": "Black Cleaver",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3071.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3071.png?image=q_auto:best&v=1626880099"
         },
         "태양불꽃 방패": {
           "skillAccel": "20",
           "englishName": "Sunfire Aegis",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3068.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3068.png?image=q_auto:best&v=1626880099"
         },
         "발걸음 분쇄기": {
           "skillAccel": "20",
           "englishName": "Stridebreaker",
-          "src": "//opgg-static.akamaized.net/images/lol/item/6631.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/6631.png?image=q_auto:best&v=1626880099"
         },
         "신성한 파괴자": {
           "skillAccel": "20",
           "englishName": "Divine Sunderer",
-          "src": "//opgg-static.akamaized.net/images/lol/item/6632.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/6632.png?image=q_auto:best&v=1626880099"
         },
         "삼위일체": {
           "skillAccel": "20",
           "englishName": "Trinity Force",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3078.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3078.png?image=q_auto:best&v=1626880099"
         }
       },
       "name": "가렌",
@@ -83,32 +83,32 @@ result.data =
         "점화석": {
           "skillAccel": "10",
           "englishName": "Kindlegem",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3067.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3067.png?image=q_auto:best&v=1626880099"
         },
         "콜필드의 전투 망치": {
           "skillAccel": "10",
           "englishName": "Caulfield's Warhammer",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3133.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3133.png?image=q_auto:best&v=1626880099"
         },
         "칠흑의 양날 도끼": {
           "skillAccel": "25",
           "englishName": "Black Cleaver",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3071.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3071.png?image=q_auto:best&v=1626880099"
         },
         "태양불꽃 방패": {
           "skillAccel": "20",
           "englishName": "Sunfire Aegis",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3068.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3068.png?image=q_auto:best&v=1626880099"
         },
         "발걸음 분쇄기": {
           "skillAccel": "20",
           "englishName": "Stridebreaker",
-          "src": "//opgg-static.akamaized.net/images/lol/item/6631.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/6631.png?image=q_auto:best&v=1626880099"
         },
         "삼위일체": {
           "skillAccel": "20",
           "englishName": "Trinity Force",
-          "src": "//opgg-static.akamaized.net/images/lol/item/3078.png?image=q_auto:best&v=1626880099"
+          "src": "https://opgg-static.akamaized.net/images/lol/item/3078.png?image=q_auto:best&v=1626880099"
         }
       },
       "name": "가렌",
@@ -124,7 +124,7 @@ result.data =
 
 ```python
 GET /champion/progress
-Host: 'http://52.78.131.104:9000/champion/progress'
+Host: http://52.78.131.104:9000
 ```
 
 ## `Response`
