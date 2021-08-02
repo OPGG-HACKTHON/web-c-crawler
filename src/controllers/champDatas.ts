@@ -4,6 +4,7 @@ import StatusCode from '../constants/statusCode';
 import { champDatas } from '../models/staticData';
 import { IResponseData, IChampionDataProps } from '../types';
 import ErrorMessage from '../constants/errorMsg';
+import errorHandler from '../utils/errorHandler';
 
 class ChampData {
   async getChampData(req: Request, res: Response) {
@@ -20,9 +21,7 @@ class ChampData {
       }
       res.status(StatusCode.OK).json(updatedData);
     } catch (error) {
-      if (error.message === ErrorMessage.UPSTREAM_ERROR) res.status(StatusCode.UPSTREAM_ERROR);
-      if (error.message === ErrorMessage.CLIENT_ERROR) res.status(StatusCode.CLIENT_ERROR);
-      if (error.message === ErrorMessage.SERVER_ERROR) res.status(StatusCode.SERVER_ERROR);
+      errorHandler(error, res);
     }
   }
 }
