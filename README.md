@@ -153,3 +153,32 @@ result.data = 75
 |   성공적으로 데이터를 전송한 경우   |  200    |                   |
 
 
+
+# Static Data Updater
+
+Browser를 컨트롤하여 Static Data를 크롤링한다.
+
+## 특징
+
+라이엇의 챔프, 아이템 추가 시에만 필요한 API 이다.
+매우 느리게 바뀌는 데이터를 보장하므로 아니므로, 천천히 추후에 추가할 예정이다.
+현재는 `update`하는 함수만 구현한 상태! 
+함수를 실행할 방법은 직접 Clone하여 실행시키는 방법 뿐입니다.😀
+
+## 실행 방법
+
+```
+1. git clone https://github.com/OPGG-HACKTHON/web-c-crawler
+
+2. npm i 
+
+3. src/staticDataUpdater/index 파일 제일 하단에 staticDataUpdater.updateStaticData() 추가
+
+4. npx tsc && node dist/staticDataUpdater/index (브라우저가 자동으로 움직일거임)
+
+5. static/ 폴더 안을 보시면 업데이트가 되어있을거에요.
+
+6. 그 업데이트된 파일을 GitHub에 push 해주세요.
+
+**굳이 안하시길 바랍니다. 
+```

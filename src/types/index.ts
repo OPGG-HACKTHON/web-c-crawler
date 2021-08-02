@@ -32,3 +32,7 @@ export interface IResponseData {
     };
   };
 }
+
+export interface IItemDictData {
+  [name: string]: string;
+}
