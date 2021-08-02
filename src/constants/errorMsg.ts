@@ -1,5 +1,5 @@
 enum ErrorMessage {
-  CLIENT_ERROR = 'Request Error',
+  CLIENT_ERROR = 'Duplicate Request',
   SERVER_ERROR = 'Server Error',
   UPSTREAM_ERROR = 'Upstream Server Error',
 }

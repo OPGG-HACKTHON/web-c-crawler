@@ -8,29 +8,41 @@ interface IData {
 }
 
 class ChampDataService {
-  public async _getSkillAccelData(): Promise<IItemSkillAccelData> {
-    const crawler = new Crawler(DataType.SKILL_ACCEL);
-    const skillAccelItemDatas = (await crawler.execute()) as IItemSkillAccelData;
-    return skillAccelItemDatas;
+  public async getSkillAccelData(): Promise<IItemSkillAccelData> {
+    try {
+      const crawler = new Crawler(DataType.SKILL_ACCEL);
+      const skillAccelItemDatas = (await crawler.execute()) as IItemSkillAccelData;
+      return skillAccelItemDatas;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  public async _getItemsByChampion(champAsset: IChampionDataProps): Promise<IResponseData> {
-    const { koName, data } = champAsset;
-    let updatedData: IResponseData = {};
-    const { englishName: enName, position } = champDatas[koName];
-    data[koName] = {};
-    for (let line of position) {
-      updatedData = await this._getItemsByLine({ ...champAsset, pos: line, enName });
+  public async getItemsByChampion(champAsset: IChampionDataProps): Promise<IResponseData> {
+    try {
+      const { koName, data } = champAsset;
+      let updatedData: IResponseData = {};
+      const { englishName: enName, position } = champDatas[koName];
+      data[koName] = {};
+      for (let line of position) {
+        updatedData = await this._getItemsByLine({ ...champAsset, pos: line, enName });
+      }
+      return updatedData;
+    } catch (error) {
+      throw error;
     }
-    return updatedData;
   }
 
   private async _getItemsByLine(champAsset: IChampionDataProps): Promise<IResponseData> {
-    const { pos, enName } = champAsset;
-    const crawler = new Crawler(DataType.IMG, enName, pos);
-    const itemsDataOfChamp = (await crawler.execute()) as IItemImgData;
-    const data = this._createResponseData(champAsset, itemsDataOfChamp);
-    return data;
+    try {
+      const { pos, enName } = champAsset;
+      const crawler = new Crawler(DataType.IMG, enName, pos);
+      const itemsDataOfChamp = (await crawler.execute()) as IItemImgData;
+      const data = this._createResponseData(champAsset, itemsDataOfChamp);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
 
   private _createResponseData(champAsset: IChampionDataProps, itemsDataOfChamp: IItemImgData): IResponseData {

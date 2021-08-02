@@ -1,7 +1,7 @@
-import { IItemSkillAccelData } from '../types/index';
+import { IItemSkillAccelData } from '../../types/index';
 import cheerio, { CheerioAPI, Cheerio, Element } from 'cheerio';
-import HTMLPaser from '../models/HTMLParser';
-import URL from '../constants/URL';
+import HTMLPaser from '../../models/HTMLParser';
+import URL from '../../constants/URL';
 
 class SkillAccelCrawler {
   private _cheerioHTMLObj: CheerioAPI | null = null;

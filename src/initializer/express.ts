@@ -1,5 +1,5 @@
 import express from 'express';
-import champData from '../routes/champData';
+import routes from '../routes/index';
 
 class ExpressInitializer {
   private _app: express.Application | null = null;
@@ -10,7 +10,7 @@ class ExpressInitializer {
 
   public init() {
     if (!this._app) return;
-    this._app.use('/', champData);
+    this._app.use('/champion', routes);
   }
 }
 

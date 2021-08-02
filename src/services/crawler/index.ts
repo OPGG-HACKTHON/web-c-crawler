@@ -1,7 +1,7 @@
-import DataType from '../constants/dataType';
+import DataType from '../../constants/dataType';
 import SkillAccelCrawler from './SkillAccel';
 import ItemsByChampCrawler from './ItemsByChamp';
-import { IItemImgData, IItemSkillAccelData } from '../types';
+import { IItemImgData, IItemSkillAccelData } from '../../types';
 
 type crawlingDataType = DataType.IMG | DataType.SKILL_ACCEL;
 

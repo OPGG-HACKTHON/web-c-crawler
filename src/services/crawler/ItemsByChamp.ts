@@ -1,7 +1,7 @@
 import cheerio, { CheerioAPI, Cheerio, Element } from 'cheerio';
-import { IItemImgData } from '../types/index';
-import HTMLPaser from '../models/HTMLParser';
-import ErrorMessage from '../constants/errorMsg';
+import { IItemImgData } from '../../types/index';
+import HTMLPaser from '../../models/HTMLParser';
+import ErrorMessage from '../../constants/errorMsg';
 
 class ItemsByChampCrawler {
   private _cheerioHTMLObj: CheerioAPI | null = null;
