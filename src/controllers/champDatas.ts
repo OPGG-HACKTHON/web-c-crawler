@@ -34,6 +34,7 @@ class ChampDataController {
         console.log(this._dataCnt);
       }
       this._isLoading = false;
+      this._setDataCnt(0);
       res.status(StatusCode.OK).json(updatedData);
     } catch (error) {
       errorHandler(error, res);

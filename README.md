@@ -2,11 +2,10 @@
 
 ```python
 GET /champion/item
-Host: ??? (임시 'http://lol-data.run.goorm.io/champion/item')
+Host: 'http://52.78.131.104:9000/champion/item'
 ```
 
 ## `Response`
-
 
 
 |   Key 종류   |              설명              |
@@ -30,7 +29,7 @@ Host: ??? (임시 'http://lol-data.run.goorm.io/champion/item')
 ## `Example`
 
 ```python
-Request : axios.get('http://lol-data.run.goorm.io/champion/item')
+Request : axios.get('http://52.78.131.104:9000/champion/item')
 
 result.data = 
 
@@ -123,7 +122,7 @@ result.data =
 
 ```python
 GET /champion/progress
-Host: ??? (임시 'http://lol-data.run.goorm.io/champion/progress')
+Host: 'http://52.78.131.104:9000/champion/progress'
 ```
 
 ## `Response`
@@ -135,7 +134,7 @@ Host: ??? (임시 'http://lol-data.run.goorm.io/champion/progress')
 ## `Example`
 
 ```python
-Request : axios.get('http://lol-data.run.goorm.io/champion/progress')
+Request : axios.get('http://52.78.131.104:9000/champion/progress')
 
 result.data = 75
 ```
