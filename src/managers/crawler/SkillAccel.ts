@@ -1,6 +1,6 @@
 import { IItemSkillAccelData } from '../../types/index';
 import cheerio, { CheerioAPI, Cheerio, Element } from 'cheerio';
-import HTMLPaser from '../../models/HTMLParser';
+import HTMLPaser from '../HTMLparser';
 import URL from '../../constants/URL';
 
 class SkillAccelCrawler {

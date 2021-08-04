@@ -5,17 +5,11 @@ interface IPageOption {
   timeout: number;
 }
 
-interface IBrowserOption {
-  slowMo: number;
-  headless: boolean;
-}
-
 export const pageOption: IPageOption = {
   waitUntil: 'load',
   timeout: 0,
 };
 
-export const browserOption: IBrowserOption = {
-  slowMo: 500,
-  headless: false,
+export const langOption = {
+  'Accept-Language': 'ko',
 };

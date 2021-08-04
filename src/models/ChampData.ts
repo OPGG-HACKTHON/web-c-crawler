@@ -1,14 +1,45 @@
+import fs from 'fs';
 import DataType from '../constants/dataType';
-import Crawler from './crawler';
+import Crawler from '../managers/crawler';
 import { champDatas, itemDict } from '../models/staticData';
 import { IUpdatedData, IItemSkillAccelData, IResponseData, IItemImgData, IChampionDataProps } from '../types';
+import sendMail from '../utils/mailSender';
+require('dotenv').config();
 
 interface IData {
   [key: string]: any;
 }
 
-class ChampDataService {
-  public async getSkillAccelData(): Promise<IItemSkillAccelData> {
+class ChampData {
+  public updateDay: Date = new Date();
+
+  public setChampData(data: IResponseData) {
+    fs.writeFile('static/customData.json', JSON.stringify(data), async () => sendMail('UPDATE SUCCESS'));
+    this.updateDay = new Date();
+  }
+
+  public getChampData(): IResponseData {
+    const champData = JSON.parse(fs.readFileSync(process.env.CHAMP_DATA_PATH!).toString());
+    return champData;
+  }
+
+  public updateChampData = async () => {
+    try {
+      const initData: IResponseData = {};
+      const champKoNames = Object.keys(champDatas);
+      const skillAccelItemDatas = await this._getSkillAccelData();
+      let updatedData: IResponseData = {};
+      for (let koName of champKoNames) {
+        const champAsset: IChampionDataProps = { koName, data: initData, skillAccelItemDatas };
+        updatedData = await this._getItemsByChampion(champAsset);
+      }
+      this.setChampData(updatedData);
+    } catch (error) {
+      await sendMail(error);
+    }
+  };
+
+  private async _getSkillAccelData(): Promise<IItemSkillAccelData> {
     try {
       const crawler = new Crawler(DataType.SKILL_ACCEL);
       const skillAccelItemDatas = (await crawler.execute()) as IItemSkillAccelData;
@@ -18,7 +49,7 @@ class ChampDataService {
     }
   }
 
-  public async getItemsByChampion(champAsset: IChampionDataProps): Promise<IResponseData> {
+  private async _getItemsByChampion(champAsset: IChampionDataProps): Promise<IResponseData> {
     try {
       const { koName, data } = champAsset;
       let updatedData: IResponseData = {};
@@ -70,5 +101,4 @@ class ChampDataService {
   }
 }
 
-const champDataService = new ChampDataService();
-export default champDataService;
+export default new ChampData();

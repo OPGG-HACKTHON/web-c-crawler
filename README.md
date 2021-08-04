@@ -1,5 +1,17 @@
 # Custom Data API
 
+## `특징`
+
+매주 수요일, 토요일 아침 6시에 자동적으로 Crawling하여 Custom Data를 업데이트합니다.<br/>
+정기 업데이트 성공 여부도 자동으로 팀원 메일로 발송하여, 오류가 있을시 즉각적으로 대응합니다!<br/>
+<br/>
+현재 메타에서 각 챔피언별, 라인별로 자주 가는 아이템을 확인하고, 그 아이템들 중 스킬 쿨타임에 영향을 주는 아이템만을 선별하여 데이터로 제공합니다.<br/>
+<br/>
+데이터에는 챔피언의 자주가는 스킬쿨타임 관련 아이템과 아이템의 스킬 쿨타임 감소 양, 아이템의 영어, 한국어 이름 등의 정보가 들어있습니다.<br/>
+또한 가장 최신 업데이트된 날짜도 제공하여, `신뢰`도를 높이고 있습니다.
+이 데이터를 이용하여, 쿨타임이 감소된 궁극기, 스펠 시간 체크를 더욱 `정확`하게 할 수 있습니다.
+
+
 ## `Request`
 
 ```python
@@ -15,6 +27,7 @@ Host: http://52.78.131.104:9000
 | ChampionName |      한글로 제공, 155가지      |
 |   Position   | jungle, top, mid, adc, support |
 | englishName  |    챔피언의 영어 이름 제공     |
+| date  |    데이터가 업데이트된 날짜     |
 
 
 
@@ -118,67 +131,12 @@ result.data =
   }....}
 ```
 
-# Progress API
-
-## `Request`
-
-```python
-GET /champion/progress
-Host: http://52.78.131.104:9000
-```
-
-## `Response`
-
-숫자의 형태로 `0~100`까지 제공.
-
-총 챔피언 수는 현재 155개이며, 현재 크롤링이 완료된 챔피언 수로 계산.
-
-## `Example`
-
-```python
-Request : axios.get('http://52.78.131.104:9000/champion/progress')
-
-result.data = 75
-```
-
 # Status Code
-
 
 
 |               설명                | 코드 |      message      |
 |:---------------------------------:|:----:|:-----------------:|
-| 중복 요청을 한 경우, Client Error | 403  | Duplicate Request |
 |자체적인 Server에 오류가 있는 경우|    500  |  Server Error     |
 |Upstream Server에 오류가 있는 경우 | 502 |  Upstream Server Error  |
 |   성공적으로 데이터를 전송한 경우   |  200    |                   |
 
-
-
-# Static Data Updater
-
-Browser를 컨트롤하여 Static Data를 크롤링한다.
-
-## 특징
-
-라이엇의 챔프, 아이템 추가 시에만 필요한 API 이다.
-데이터가 매우 느리게 변화하는걸 보장하므로, API는 천천히 추후에 추가할 예정이다.
-현재는 `update`하는 함수만 구현한 상태! 
-함수를 실행할 방법은 직접 Clone하여 실행시키는 방법 뿐입니다.😀
-
-## 실행 방법
-
-```
-1. git clone https://github.com/OPGG-HACKTHON/web-c-crawler
-
-2. npm i 
-
-3. src/staticDataUpdater/index 파일 제일 하단에 staticDataUpdater.updateStaticData() 추가
-
-4. npx tsc && node dist/staticDataUpdater/index (브라우저가 자동으로 움직일거임)
-
-5. static/ 폴더 안을 보시면 업데이트가 되어있을거에요.
-
-6. 그 업데이트된 파일을 GitHub에 push 해주세요.
-
-**굳이 안하시길 바랍니다.** 
-```

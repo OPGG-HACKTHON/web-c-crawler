@@ -8,5 +8,6 @@ enum URL {
   NAMUWIKI_PAGE6 = 'https://namu.wiki/w/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/%EC%95%84%EC%9D%B4%ED%85%9C/%EC%9E%A5%ED%99%94',
   NAMUWIKI_PAGE7 = 'https://namu.wiki/w/%EB%A6%AC%EA%B7%B8%20%EC%98%A4%EB%B8%8C%20%EB%A0%88%EC%A0%84%EB%93%9C/%EC%95%84%EC%9D%B4%ED%85%9C/%ED%8A%B9%EC%88%98',
   OPGG_STATIC_DATA = 'https://www.op.gg/champion/statistics',
+  VERSION = 'https://ddragon.leagueoflegends.com/api/versions.json',
 }
 export default URL;
