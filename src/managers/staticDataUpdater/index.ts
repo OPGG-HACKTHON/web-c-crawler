@@ -6,6 +6,7 @@ import fs from 'fs';
 import position from '../../constants/position';
 import axios from 'axios';
 import ErrorMessage from '../../constants/errorMsg';
+import sendMail from '../../utils/mailSender';
 
 const namuWikiURLs = [
   URL.NAMUWIKI_PAGE1,
@@ -25,8 +26,12 @@ class StaticDataUpdater {
   }
 
   public async updateStaticData() {
-    await this._updateItemDict();
-    await this._updateChampList();
+    try{
+      await this._updateItemDict();
+      await this._updateChampList();
+    }catch(error){
+      await sendMail(error);
+    }
   }
 
   private async _updateItemDict() {

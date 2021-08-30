@@ -2,7 +2,7 @@ import fs from 'fs';
 import DataType from '../constants/dataType';
 import Crawler from '../managers/crawler';
 import { champDatas, itemDict } from '../models/staticData';
-import { IUpdatedData, IItemSkillAccelData, IResponseData, IItemImgData, IChampionDataProps } from '../types';
+import { IUpdatedData, IItemSkillAccelData, IResponseData, IItemImgData, IChampionDataProps, IChampData, IItemData } from '../types';
 import sendMail from '../utils/mailSender';
 require('dotenv').config();
 
@@ -11,10 +11,39 @@ interface IData {
 }
 
 class ChampData {
+  private _changeDataForm = (data: IResponseData):IChampData[] => {
+    const newData = []
+    for (let name of Object.keys(data)) {
+      const posData = data[name]
+      for ( let pos of Object.keys(posData)) {
+        const unitData = posData[pos];
+        const newItems = []
+        for ( let itemName of Object.keys(unitData.items)){
+          const itemData = unitData.items[itemName]
+          const newItemData:IItemData = {
+            name : itemName,
+            skillAccel : itemData.skillAccel,
+            englishName : itemData.englishName,
+            src : itemData.src
+          }
+          newItems.push(newItemData)
+        }
+        const newUnitData : IChampData = {
+          id : name,
+          position: pos,
+          items : newItems
+        }
+        newData.push(newUnitData) 
+      }
+    }
+    return newData
+  }
+
   public updateDay: Date = new Date();
 
   public setChampData(data: IResponseData) {
-    fs.writeFile('static/customData.json', JSON.stringify(data), async () => sendMail('UPDATE SUCCESS'));
+    const newData = this._changeDataForm(data)
+    fs.writeFile('static/customData.json', JSON.stringify(newData), async () => sendMail('UPDATE SUCCESS'));
     this.updateDay = new Date();
   }
 

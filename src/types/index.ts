@@ -33,6 +33,20 @@ export interface IResponseData {
   };
 }
 
+
+export interface IChampData {
+  id : string,
+  position: string,
+  items : IItemData[]
+}
+
+export interface IItemData {
+  name : string,
+  skillAccel: string,
+  englishName: string,
+  src : string
+}
+
 export interface IItemDictData {
   [name: string]: string;
 }

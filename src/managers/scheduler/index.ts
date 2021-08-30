@@ -4,9 +4,12 @@ import staticDataUpdater from '../staticDataUpdater';
 
 class Scheduler {
   public async scheduleCrawling() {
-    schedule.scheduleJob('00 00 06 * * 2,6', async () => {
+    schedule.scheduleJob('24 31 15 * * 1,6', async () => {
+      const date = new Date()
+      console.log(date + '업데이트 시작')
       await staticDataUpdater.updateStaticData();
       await ChampDataModel.updateChampData();
+      console.log(date + '업데이트 끝')
     });
   }
 }
