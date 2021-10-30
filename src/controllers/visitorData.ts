@@ -6,7 +6,7 @@ class VisitorController {
     public visit (req: Request, res: Response) {
         try {
             const data = JSON.parse(fs.readFileSync('static/visitor.json').toString());
-            data.totalVisitor += String(parseInt(data.totalVisitor) + 1);
+            data.totalVisitor = String(parseInt(data.totalVisitor) + 1);
             data.visitorInfo.push({date: new Date()})
             fs.writeFile('static/visitor.json', JSON.stringify(data), () => {});
             res.send()
