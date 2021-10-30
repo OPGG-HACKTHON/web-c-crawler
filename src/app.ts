@@ -12,6 +12,7 @@ const startServer = () => {
   const initializer: Initializer = new Initializer(app);
   initializer.init();
   https.createServer(options, app).listen(SERVER_PORT);
+  // app.listen(SERVER_PORT)
 };
 
 startServer();

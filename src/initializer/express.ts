@@ -1,5 +1,6 @@
 import express from 'express';
 import routes from '../routes/index';
+const requestIp = require('request-ip');
 const cors = require('cors');
 
 const corsOption = {
@@ -18,6 +19,7 @@ class ExpressInitializer {
     if (!this._app) return;
     this._app.use('/champion', routes);
     this._app.use(cors(corsOption));
+    this._app.use(requestIp.mw())
   }
 }
 
