@@ -17,8 +17,8 @@ class ExpressInitializer {
 
   public init() {
     if (!this._app) return;
-    this._app.use('/champion', routes);
     this._app.use(cors());
+    this._app.use('/champion', routes);
     this._app.use(requestIp.mw())
   }
 }
