@@ -4,7 +4,7 @@ const requestIp = require('request-ip');
 const cors = require('cors');
 
 const corsOption = {
-  origin: true,
+  origin: '*',
   credentials: true,
 };
 
