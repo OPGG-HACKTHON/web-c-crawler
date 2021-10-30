@@ -14,7 +14,7 @@ class VisitorController {
             const ip = requestIp.getClientIp(req);
             const ipStr = String(ip)
             if(!data.visitorInfo[ipStr]) data.visitorInfo[ipStr] = '0';
-            data.visitorInfo[ipStr] = String(parseInt(data.totalVisitor) + 1);
+            data.visitorInfo[ipStr] = String(parseInt(data.visitorInfo[ipStr]) + 1);
             
             if(!data.DAU[currentDay]) data.DAU[currentDay] = '0';
             data.DAU[currentDay] = String(parseInt(data.DAU[currentDay]) + 1);
