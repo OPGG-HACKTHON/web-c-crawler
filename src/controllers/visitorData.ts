@@ -8,7 +8,8 @@ class VisitorController {
         try {
             const data = JSON.parse(fs.readFileSync('static/visitor.json').toString());
             data.totalVisitor = String(parseInt(data.totalVisitor) + 1);
-            const currentDate = String(new Date());
+            const day = new Date()
+            const currentDate = String(day.getFullYear()) + '-' + String(day.getMonth()) + '-' + String(day.getDay());
             const currentDay = currentDate.split('T')[0]
             const ip = req.headers['x-forwarded-for'] ?? 'unknown';
             const ipStr = String(ip)
