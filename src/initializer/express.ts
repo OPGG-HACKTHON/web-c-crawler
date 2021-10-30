@@ -2,10 +2,10 @@ import express from 'express';
 import routes from '../routes/index';
 const cors = require('cors');
 
-let corsOptions = {
-  origin: 'https://www.domain.com',
-  credentials: true
-}
+const corsOption = {
+  origin: true,
+  credentials: true,
+};
 
 class ExpressInitializer {
   private _app: express.Application | null = null;
@@ -17,7 +17,7 @@ class ExpressInitializer {
   public init() {
     if (!this._app) return;
     this._app.use('/champion', routes);
-    this._app.use(cors(corsOptions));
+    this._app.use(cors(corsOption));
   }
 }
 
