@@ -44,6 +44,7 @@ class VisitorController {
   public getVisitor(req: Request, res: Response) {
     try {
         const data = JSON.parse(fs.readFileSync('static/visitor.json').toString());
+        delete data.visitorInfo;
         res.send(data)
     } catch (error) {
       errorHandler(error, res);
