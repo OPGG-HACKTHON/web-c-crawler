@@ -5,5 +5,6 @@ const router = express.Router();
 router.get('/', visitorController.getVisitor);
 router.get('/plus', visitorController.visit);
 router.get('/user/:summonerName', visitorController.checkUser);
+router.get('/user/example', visitorController.checkExample);
 
 export default router;

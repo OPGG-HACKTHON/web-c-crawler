@@ -41,6 +41,18 @@ class VisitorController {
         }
     }
 
+    public checkExample(req: Request, res: Response) {
+        try{
+            const data = JSON.parse(fs.readFileSync('static/visitor.json').toString());
+            if(!data.examplePage) data.examplePage = '0';
+            data.examplePage = String(parseInt(data.examplePage) + 1);
+            fs.writeFile('static/visitor.json', JSON.stringify(data), () => {});
+            res.send();
+        }catch(err) {
+            errorHandler(err, res);
+        }
+    }
+
   public getVisitor(req: Request, res: Response) {
     try {
         const data = JSON.parse(fs.readFileSync('static/visitor.json').toString());
