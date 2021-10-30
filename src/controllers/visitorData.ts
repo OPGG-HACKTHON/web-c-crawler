@@ -13,7 +13,10 @@ class VisitorController {
             const currentDay = currentDate.split('T')[0]
             const ip = requestIp.getClientIp(req);
             const ipStr = String(ip)
-            if(!data.visitorInfo[ipStr]) data.visitorInfo[ipStr] = '0';
+            if(!data.visitorInfo[ipStr]) {
+                data.visitorInfo[ipStr] = '0';
+                data.uniqUser = String(parseInt(data.uniqUser) + 1);
+            }
             data.visitorInfo[ipStr] = String(parseInt(data.visitorInfo[ipStr]) + 1);
             
             if(!data.DAU[currentDay]) data.DAU[currentDay] = '0';
