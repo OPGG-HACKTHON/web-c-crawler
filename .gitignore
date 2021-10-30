@@ -3,6 +3,8 @@
 .pnp.js
 .gitmessage
 
+/static/visitor.json
+
 node_modules
 dist
 .DS_Store
