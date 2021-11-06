@@ -8,7 +8,7 @@ class ErrorDataController {
         const { errorData } = req.body;
         let data = fs.readFileSync('static/error.json').toString()
         data += (`\n\n` + JSON.stringify(errorData))
-        fs.writeFile('static/error.json', JSON.stringify(data), () => {});
+        fs.writeFile('static/error.json', data, () => {});
         res.send();
     } catch (error) {
       errorHandler(error, res);
@@ -17,9 +17,10 @@ class ErrorDataController {
 
   public getErrorData(req: Request, res: Response) {
     try {
-        const data = JSON.parse(fs.readFileSync('static/error.json').toString());
+        const data = fs.readFileSync('static/error.json').toString()
         res.send(data)
     } catch (error) {
+        console.log(error)
       errorHandler(error, res);
     }
   }
