@@ -4,6 +4,7 @@
 .gitmessage
 
 /static/visitor.json
+/static/error.json
 
 node_modules
 dist
