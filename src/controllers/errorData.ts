@@ -6,8 +6,8 @@ class ErrorDataController {
   public saveErrorData(req: Request, res: Response) {
     try {
         const { errorData } = req.body;
-        const data = JSON.parse(fs.readFileSync('static/error.json').toString());
-        data.push(errorData)
+        let data = fs.readFileSync('static/error.json').toString()
+        data += (`\n\n` + JSON.stringify(errorData))
         fs.writeFile('static/error.json', JSON.stringify(data), () => {});
         res.send();
     } catch (error) {
