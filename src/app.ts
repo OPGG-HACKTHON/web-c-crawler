@@ -4,7 +4,18 @@ import Initializer from './initializer/index';
 const https = require('https');
 require('dotenv').config();
 
-const options = { key: fs.readFileSync('/home/ubuntu/app/swoomi/private.key'), cert: fs.readFileSync('/home/ubuntu/app/swoomi/certificate.crt') };
+// const options = { key: fs.readFileSync('/home/ec2-user/swoomi/backend_swoomi_me.p12') };
+
+const options = {
+  url: 'https://backend.swoomi.me/',
+  headers: {
+      "content-type": "application/json",
+  },
+  agentOptions: {
+      pfx: fs.readFileSync('/home/ec2-user/swoomi/backend_swoomi_me.p12'),
+      passphrase: ''
+  }
+};
 
 const startServer = () => {
   const app: express.Application = express();
